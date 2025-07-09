@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemplo Media Query</title>
+    <style>
+      body {
+        display: flex;
+      }
+      .caixinha {
+        min-width: 96px;
+        min-height: 96px;
+        max-width: 96px;
+        max-height: 96px;
+      }
+      .vermelha {
+        background-color: red;
+      }
+      .verde {
+        background-color: green;
+      }
+      .azul {
+        background-color: blue;
+      }
+      .amarela {
+        background-color: yellow;
+      }
+      @media (max-width: 480px) {
+        body {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="caixinha vermelha"></div>
+    <div class="caixinha verde"></div>
+    <div class="caixinha azul"></div>
+    <div class="caixinha amarela"></div>
+  </body>
+</html>
