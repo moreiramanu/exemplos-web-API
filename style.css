@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Manufacturing+Consent&display=swap");
+
+div {
+  transform: translate(0px, -30px);
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  color: white;
+  text-align: center;
+  line-height: 100px;
+  transition: transform 0.3s ease;
+}
+
+.box:hover {
+  transform: scale(2);
+}

@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Manufacturing+Consent&display=swap");
+
+.box {
+  width: 36px;
+  height: 36px;
+  background-color: blue;
+  animation: 2s ease-in 0s 1 pulsar;
+}
+
+@keyframes pulsar {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

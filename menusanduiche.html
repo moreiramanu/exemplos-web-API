@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .opcao {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button
+        onclick="sanduiche()"
+        style="
+          background: none;
+          border: none;
+          width: 32px;
+          height: 32px;
+          cursor: pointer;
+        "
+      >
+        <img
+          src="hamburger-menu-mobile-svgrepo-com.svg"
+          alt="Abrir menu"
+          style="width: 100%; height: auto"
+        />
+      </button>
+      <div id="sanduiche" class="opcao">
+        <p>Inicio</p>
+        <p>Quem somos</p>
+        <p>Nossos produtos</p>
+        <p>Contato</p>
+        <p>Mapa do Site</p>
+      </div>
+    </div>
+    <script>
+      function sanduiche() {
+        const conteudos = document.getElementById("sanduiche");
+        conteudos.classList.toggle("opcao");
+      }
+    </script>
+  </body>
+</html>

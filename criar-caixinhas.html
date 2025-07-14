@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criador de caixinhas</title>
+    <style>
+      #container {
+        display: flex;
+      }
+      .caixa {
+        width: 16px;
+        height: 16px;
+        margin-top: 0.5rem;
+        background-color: chartreuse;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="criarCaixinha()">Clique em mim</button>
+    <div id="container"></div>
+    <script>
+      function criarCaixinha() {
+        const caixinha = document.createElement("div");
+        caixinha.classList.add("caixa");
+        document.getElementById("container").append(caixinha);
+      }
+    </script>
+  </body>
+</html>
