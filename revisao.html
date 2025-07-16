@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="handleClick()">Mude o estilo</button>
+    <button onclick="criarElementoFilho()">Crie um elemento</button>
+    <div style="display: flex; flex-direction: column" id="container"></div>
+    <script>
+      //Colocar o javascript aqui!
+      //Top-level são as linhas de código fora das funções
+      let contador = 0;
+      function handleClick() {
+        const qualquerCoisa = document.getElementById("container");
+        qualquerCoisa.style.width = "32px";
+        qualquerCoisa.style.height = "32px";
+        qualquerCoisa.style.backgroundColor = "red";
+      }
+      function criarElementoFilho() {
+        const novoElemento = document.createElement("p");
+        novoElemento.textContent = contador;
+        novoElemento.style.margin = "0px";
+        contador = contador + 1;
+        const elementoPai = document.getElementById("container");
+        elementoPai.appendChild(novoElemento);
+        console.log("O valor de contador é: " + contador);
+      }
+    </script>
+  </body>
+</html>
