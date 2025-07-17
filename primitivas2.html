@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*A primitiva lógica armazena o valor-verdade de
+      proposições*/
+      /*Para eu construir as proposições, eu posso me valer
+      de três artifícios*/
+      //Átomos são proposições indivisíveis
+      let a = true;
+      let b = false;
+      //Algumas primitivas têm valor-verdade true,
+      //outras não
+      a = 1;
+      //O comando acima não altera o valor-verdade de a
+      //números são verdadeiros sempre
+      //EXCETO O 0, que tem valor falso
+      b = "a";
+      //A primitiva texto também tem valor verdadeiro
+      //A exceção é o texto vazio ''
+      /*Para montar proposições, eu posso ligar meus átomos
+      a dois tipos de operadores*/
+      //Operadores relacionais fazem comparações
+      a = 3 < 5;
+      b = 100 > 1;
+      //Verdadeiro se os valores são iguais e a primitiva é a mesma
+      a = 1 === 1;
+      //Verdadeiro se os valores são iguais, independente da primitiva
+      a = 1 == "1";
+      //Diferença
+      b = 3 != 1;
+      //Diferença que olha para a primitiva também
+      b = 3 !== "3";
+      a = 3 >= 3;
+      a = 3 <= 3;
+      //Também temos os operadores lógicos
+      //Operador lógico E: true se os dois operandos forem true
+      a = true && true;
+      b = true && false;
+      b = false && false;
+      //Operador lógico OU: true se pelo menos um for verdadeiro
+      a = true || true;
+      a = false || false;
+      b = false || true;
+      //Operador lógico NÃO: inverte o valor de uma proposição
+      a = !true;
+      b = !false;
+      a = !(false || true);
+    </script>
+  </body>
+</html>
