@@ -51,6 +51,15 @@
       a = !true;
       b = !false;
       a = !(false || true);
+      //Posso declarar primitivas EXPLICITAMENTE
+      a = Boolean(1);
+      b = Number(1);
+      c = "1";
+      console.log(a + a);
+      console.log(b + b);
+      console.log(c + c);
+      //igualdade em valor e primitiva
+      console.log("a" === `a`);
     </script>
   </body>
 </html>

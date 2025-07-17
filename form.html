@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input:valid {
+        border: 2px solid green;
+      }
+      input:invalid {
+        border: 2px solid red;
+      }
+      .i {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form onsubmit="submeter(this)">
+      <div>
+        <label for="q1">Nome:</label>
+        <input id="q1" type="text" required />
+      </div>
+      <div>
+        <p style="color: red" class="i">Endereço inválido</p>
+        <label for="q2">Email:</label>
+        <input id="q2" type="text" required />
+      </div>
+      <button type="submit">Enviar</button>
+      <button type="reset">Apagar tudo</button>
+    </form>
+    <script>
+      function submeter(formulario) {
+        // O formulário fica só no front-end
+        event.preventDefault();
+        //Capturar os valores dos campos e guardar eles em variáveis
+        const nome = formulario.q1.value;
+        const email = formulario.q2.value;
+        //Verificar se o email é um email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          const mensagem = document.querySelector(".i");
+          mensagem.style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
