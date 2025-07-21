@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div><h1>Qual o melhor?</h1></div>
+    <select name="pesquisa" id="pesquisa">
+      <option value="Hello" onchange="handleChange()">Hello</option>
+      <option value="World" onchange="handleChange()">World</option>
+    </select>
+    <button onclick="handleChange()"></button>
+    <div><p id="hello">Hello World.</p></div>
+    <script>
+      let select = document.getElementById("pesquisa");
+      let selectedValue = select.options[select.selectedIndex].text;
+      function handleChange() {
+        const texto = document.getElementById("hello");
+        texto.textContent = selectedValue;
+      }
+    </script>
+  </body>
+</html>

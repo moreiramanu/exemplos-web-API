@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <div class="vazio"></div>
+    <script defer>
+      //Um vetor/array/arranjo
+      //é uma variável que ocupa vários espaços na memória
+      const arr = [1, 2, 3];
+      //Um dos usos para os arranjos é poder mexer em vários
+      //elementos de uma só vez
+      const elementos = document.querySelectorAll(".vazio");
+      for (let elemento of elementos) {
+        elemento.textContent = "Olá";
+      }
+      //Posso acessar elementos do meu vetor por meio do índice
+      elementos[1].textContent = "Tchau";
+      //O primeiro elemento é a posição [0]
+      elementos[0].textContent = "Primeiro elemento";
+      elementos[elementos.length - 1].textContent = "Último elemento";
+      //push(): Adiciona um elemento ao final do array.
+      arr.push(4);
+      console.log(arr);
+      //pop(): Remove o último elemento do array.
+      arr.pop();
+      console.log(arr);
+      //shift(): Remove o primeiro elemento do array.
+      arr.shift();
+      console.log(arr);
+      //unshift(): Adiciona um elemento ao início do array.
+      arr.unshift(0);
+      console.log(arr);
+      //indexOf(): Retorna o índice do primeiro elemento encontrado no array.
+      console.log(arr.indexOf(2));
+      //forEach(): Executa uma função para cada elemento do array.
+      arr.forEach((e) => {
+        console.log(
+          "Executar esta linha para cada elemento, executando para o elemento: " +
+            e
+        );
+      });
+      //Consigo para remover vários elemento de um array de uma vez
+      const vet = arr.splice(1, 2);
+      console.log(arr);
+      console.log(vet);
+      //Além do indexOf, consigo fazer a busca em array pelo includes
+      const zoo = ["Cachorro", "Calopsita", "Gato"];
+      //True se o array zoo inclui pelo menos um Cachorro
+      console.log(zoo.includes("Cachorro"));
+      //False pois zoo não inclui nenhum Leão
+      console.log(zoo.includes("Leão"));
+    </script>
+  </body>
+</html>
