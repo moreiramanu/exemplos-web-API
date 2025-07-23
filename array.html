@@ -98,6 +98,75 @@
       console.log(zoo.includes("Cachorro"));
       //False pois zoo não inclui nenhum Leão
       console.log(zoo.includes("Leão"));
+      const vetorzinho = [1, 5, 3, 4, 2, 10, 8, 7, 6, 9, 11, 24, -10];
+      //reverse inverte a ordem dos elementos do array
+      console.log(vetorzinho.reverse());
+      //Sort é um método de instância que ordena os elementos do array
+      //A ordenação é feita por ordem lexicográfica, como se fossem palavras
+      console.log(vetorzinho.sort());
+      //Se eu quero ordenar em ordem numérica, eu posso passar uma função
+      //personalizada de ordenação
+      console.log(
+        //Ordena por ordem numérica
+        vetorzinho.sort((a, b) => {
+          return a - b;
+        })
+      );
+      console.log(vetorzinho);
+      //toString converte o array em uma primitiva texto
+      console.log(vetorzinho.toString());
+      //Se imprimirmos vetorzinho, vemos que tostring não converte o
+      //array, mas sim cria uma string nova
+      console.log(vetorzinho);
+      //Existem três funções redutoras de array, que fazem o
+      //processamento mais avançado de arrays
+      //A função map realiza transformações em cada elemento do array
+      //Map recebe como parâmetro uma função, esta precisa receber
+      //um elemento como parâmetro e precisa retornar um valor
+      function dobrar(x) {
+        return x * 2;
+      }
+      const novoVetorzinho = vetorzinho.map(dobrar);
+      console.log(novoVetorzinho);
+      //Também posso fazer map com a função anônima
+      const vetorzinhoFuncAnonima = vetorzinho.map((x) => {
+        return x * 2;
+      });
+      console.log(vetorzinhoFuncAnonima);
+      //Filter cria um novo array somente com elementos que passam
+      // em um teste
+      //Filter recebe como parâmetro a função-filtro
+      //A função-filtro necessariamente recebe um elemento do array
+      //E retorna true ou false
+      function ehPar(x) {
+        return x % 2 === 0;
+      }
+      const numerosPares = vetorzinho.filter(ehPar);
+      console.log(numerosPares);
+      //Também posso fazer filter com a função anônima
+      const numerosParesFuncAnonima = vetorzinho.filter((x) => {
+        return x % 2 === 0;
+      });
+      console.log(numerosParesFuncAnonima);
+      //A terceira função redutora é o reduce
+      //O reduce transforma um array em um único valor
+      //As funções redutoras precisam de dois parâmetros
+      //O primeiro guarda um resultado parcial, ou seja é um ACUMULADOR
+      //O segundo é o elemento atual do array
+      function somarElementos(acumulador, elemento) {
+        return acumulador + elemento;
+      }
+      //Reduce recebe como primeiro parâmetro a função redutora
+      //E como segundo parâmetro o valor inicial do acumulador
+      const somaDosElementos = vetorzinho.reduce(somarElementos, 0);
+      console.log(somaDosElementos);
+      //Também posso fazer reduce com a função anônima
+      const somaDosElementosFuncAnonima = vetorzinho.reduce(
+        (acumulador, elemento) => {
+          return acumulador + elemento;
+        },
+        0
+      );
     </script>
   </body>
 </html>
