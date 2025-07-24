@@ -1,28 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cliente da API</title>
-  </head>
-  <body>
-    <script>
-      // Carregar o formulário para atualização
-      // Botão para buscar o HTML
-      // Elemento exibe o HTML do servidor
-      // submit: Enviar dados para o servidor via POST
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cliente da API</title>
+</head>
+<body>
+  <h1>Formulário</h1>
+
+  <form id="formulario">
+    <!-- Carregar o formulário para atualização -->
+    <label for="title">Título:</label>
+    <input type="text" id="title" required />
+
+    <label for="conteudo">Conteúdo:</label>
+    <input type="text" id="conteudo" required />
+
+    <!-- Botão para atualizar o HTML -->
+    <button type="submit">Atualizar o HTML</button>
+
+    <!-- Botão para buscar o HTML -->
+    <button type="button" id="btnExibir">Exibir Novo HTML</button>
+  </form>
+
+  <!-- Elemento exibe o HTML do servidor -->
+  <div id="htmlGerado">
+    <p>O novo conteúdo será exibido aqui.</p>
+  </div>
+
+  <script>
+    // submit: Enviar dados para o servidor via POST
+    document.getElementById('formulario').addEventListener('submit', function (event) {
+      event.preventDefault();
+
       // Obter os valores dos campos de entrada
+      const titulo = document.getElementById('title').value;
+      const conteudo = document.getElementById('conteudo').value;
+
       // Fazer a requisição POST para atualizar o HTML
-      // Fetch é o método que interage com a API no javascript
-      // Ele utiliza HTTP para enviar e receber dados
-      // O primeiro parâmetro do fetch é a URI do recurso
-      // Especificar o método da requisição
-      // Configurar os cabeçalhos da requisição
-      // Neste caso, estamos enviando JSON
-      // Corpo da requisição
-      //Tudo isso, da linha 41 a 60 foi usado para mandar
-      //os dados ao servidor via POST
-      // Obter o conteúdo do arquivo HTML via GET
-    </script>
-  </body>
+      fetch('http://172.17.9.149:3000/api/update-html', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ titulo, conteudo })
+      })
+      .then(res => {
+        if (!res.ok) throw new Error('Erro ao enviar dados');
+        return res.json().catch(() => ({})); // Evita erro se não vier JSON
+      })
+      .then(data => {
+        alert(data.message || 'HTML atualizado com sucesso.');
+      })
+      .catch(err => {
+        alert('Erro ao atualizar o HTML.');
+        console.error(err);
+      });
+    });
+
+    // Obter o conteúdo do arquivo HTML via GET
+    document.getElementById('btnExibir').addEventListener('click', () => {
+      fetch('http://172.17.9.149:3000/api/get-html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('htmlGerado').innerHTML = html;
+        })
+        .catch(err => {
+          document.getElementById('htmlGerado').innerText = 'Erro ao carregar HTML.';
+          console.error(err);
+        });
+    });
+  </script>
+</body>
 </html>
