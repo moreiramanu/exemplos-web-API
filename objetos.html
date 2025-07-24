@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemplo objetos</title>
+  </head>
+  <body>
+    <script>
+      //Para declarar um objeto, utilizamos as chaves
+      const pessoa = {
+        nome: "Bernardo",
+        idade: 31,
+        profissao: "Instrutor",
+      };
+      //Podemos acessar as propriedades do objeto utilizando
+      //a notação de ponto
+      console.log(pessoa.nome); // Bernardo
+      console.log(pessoa.idade); // 31
+      console.log(pessoa.profissao); // Instrutor
+      //Podemos adicionar novas propriedades ao objeto
+      pessoa.nacionalidade = "Brasileiro";
+      //Além de propriedades, objetos também podem ter métodos, que também podemos
+      //acessar utilizando a notação de ponto e adicionar depois da criação
+      pessoa.apresentar = function () {
+        console.log(
+          `Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e sou ${this.profissao}.`
+        );
+      };
+      //Desta forma, podemos acessar o método e executar
+      pessoa.apresentar();
+      //As propriedades de um objeto também podem ser acessadas
+      //utilizando a notação de colchetes
+      console.log(pessoa["nome"]);
+      // Podemos iterar sobre as propriedades de um objeto
+      for (const chave in pessoa) {
+        console.log(`${chave}: ${pessoa[chave]}`);
+      }
+      //Podemos editar as propriedades de um objeto mesmo que ele seja const
+      pessoa.idade = 32;
+      pessoa.apresentar();
+    </script>
+  </body>
+</html>

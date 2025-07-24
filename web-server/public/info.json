@@ -1,0 +1,6 @@
+{
+  "nome": "Exemplo de API",
+  "versao": "1.0.0",
+  "descricao": "Isso é um exemplo de json",
+  "autor": { "nome": "Bernardo", "sobrenome": "Lima" }
+}

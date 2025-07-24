@@ -1,13 +1,78 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página de exemplo</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Cliente da API</title>
   </head>
   <body>
-    <h1>Bem-vindos ao curso Programador Web</h1>
-    <p>Este é um exemplo de página estática servida pelo meu servidor web</p>
+    <h1>Cliente da API</h1>
+    <form id="updateForm">
+      <label for="title">Título:</label>
+      <input type="text" id="title" name="title" required />
+      <label for="content">Conteúdo:</label>
+      <textarea id="content" name="content" required></textarea>
+      <button type="submit">Atualizar HTML</button>
+    </form>
+
+    <button id="fetchHtml">Obter HTML Atualizado</button>
+
+    <h2>Conteúdo do HTML:</h2>
+    <div id="htmlOutput" class="output"></div>
+
+    <script>
+      // Carregar o formulário para atualização
+      const updateForm = document.getElementById("updateForm");
+      // Botão para buscar o HTML
+      const fetchHtmlButton = document.getElementById("fetchHtml");
+      // Elemento exibe o HTML do servidor
+      const htmlOutput = document.getElementById("htmlOutput");
+
+      // Enviar dados para o servidor via POST
+      updateForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        // Obter os valores dos campos de entrada
+        const title = document.getElementById("title").value;
+        const content = document.getElementById("content").value;
+        // Fazer a requisição POST para atualizar o HTML
+        // Fetch é o método que interage com a API no javascript
+        // Ele utiliza HTTP para enviar e receber dados
+        // O primeiro parâmetro do fetch é a URI do recurso
+        fetch("http://localhost:3000/api/update-html", {
+          // Especificar o método da requisição
+          method: "POST",
+          // Configurar os cabeçalhos da requisição
+          // Neste caso, estamos enviando JSON
+          headers: {
+            "Content-Type": "application/json",
+          },
+          // Corpo da requisição
+          body: JSON.stringify({ title, content }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            alert(data.message || "HTML atualizado com sucesso!");
+          })
+          .catch((error) => {
+            console.error("Erro:", error);
+            alert("Erro ao atualizar o HTML.");
+          });
+      });
+      //Tudo isso, da linha 41 a 60 foi usado para mandar
+      //os dados ao servidor via POST
+
+      // Obter o conteúdo do arquivo HTML via GET
+      fetchHtmlButton.addEventListener("click", () => {
+        fetch("http://localhost:3000/api/get-html")
+          .then((response) => response.text())
+          .then((html) => {
+            htmlOutput.innerHTML = html;
+          })
+          .catch((error) => {
+            console.error("Erro:", error);
+            alert("Erro ao obter o HTML.");
+          });
+      });
+    </script>
   </body>
 </html>
